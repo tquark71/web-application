@@ -1,4 +1,4 @@
-currentBuild.displayName = "CICD_Demo # "+currentBuild.number
+currentBuild.displayName = "Final_Demo # "+currentBuild.number
 
    def getDockerTag(){
         def tag = sh script: 'git rev-parse HEAD', returnStdout: true
@@ -11,9 +11,12 @@ pipeline{
         environment{
 	    Docker_tag = getDockerTag()
         }
-     
+        
         stages{
+
+
               stage('Quality Gate Statuc Check'){
+
                agent {
                 docker {
                 image 'maven'
@@ -35,6 +38,9 @@ pipeline{
                   }
                 }  
               }
+
+
+
               stage('build')
                 {
               steps{
@@ -46,7 +52,7 @@ pipeline{
 				  sh 'docker login -u deekshithsn -p $docker_password'
 				  sh 'docker push deekshithsn/devops-training:$Docker_tag'
 			}
-                      }
+                       }
                     }
                  }
 		 
@@ -61,5 +67,13 @@ pipeline{
 				}
 			}
 		}
-  }
+		
+	
+		
+               }
+	       
+	       
+	       
+	      
+    
 }
