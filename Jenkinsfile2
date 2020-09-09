@@ -38,7 +38,7 @@ pipeline{
 		  sh 'cp -r /var/lib/jenkins/workspace/DevOps-Demo@2/target .'
                   sh 'docker build . -t kyoseok/devops_sample:$Docker_tag'
 		  withCredentials([string(credentialsId: 'b2e47f98-793c-41ad-b167-e85878529be3', variable: 'docker_password')]) {			    
-				  sh 'docker login -u kyoseok -p $docker_password'
+				  sh 'docker login -u kyoseok -p '
 				  sh 'docker push kyoseok/devops_sample:$Docker_tag'
 			}
                        }
