@@ -35,7 +35,7 @@ pipeline{
                 {
               steps{
                   script{
-		  sh 'cp -r /var/lib/jenkins/workspace/devops-training@2/target .'
+		  sh 'cp -r /var/lib/jenkins/workspace/DevOps-Demo@2/target .'
                   sh 'docker build . -t kyoseok/devops_sample:$Docker_tag'
 		  withCredentials([string(credentialsId: 'docker_password', variable: 'docker_password')]) {			    
 				  sh 'docker login -u kyoseok -p $docker_password'
