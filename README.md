@@ -2,5 +2,5 @@
 1. Jenkins
 1. GitHub  
   * WebHook between Jenkins and GitHub  
-1. Sonarqube
-1. maven
+3. Sonarqube
+4. maven
